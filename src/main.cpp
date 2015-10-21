@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <getopt.h>
 
+#include "game.h"
+
 bool g_verbose = false;
 bool g_echo = false;
 
@@ -27,7 +29,7 @@ int main(int argc, char** argv) {
 		}
 	}
 
-	// TODO: Launch Game
+	runGame();
 
 	return EXIT_SUCCESS;
 }
