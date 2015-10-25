@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS=-Wall -Werror
 
-GAME_ASSETS=board.h piece.h
+GAME_ASSETS=board.h piece.h avatar.h location_2d.h
 
 all: chess
 

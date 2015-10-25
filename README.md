@@ -149,8 +149,9 @@ Critical Milestones correspond to definitions above.
     - [ ] 0.0: Single-Player Chess
       - [x] Remember how to compile things in C/C++
         - [x] Makefile
-      - [w] Base Implementation - Can Place Pieces in Code
-        - [ ] Can Deallocate Responsibly via Destructor
+      - [x] Base Implementation - Can Place Pieces in Code
+        - [x] Location and Rendering Attrs broken out
+        - [x] Can Deallocate Responsibly via Destructor
         - [ ] Logging Utility
       - [ ] Draw Board
         - [ ] Draw Board

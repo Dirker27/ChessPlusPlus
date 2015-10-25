@@ -6,15 +6,27 @@
 #include "board.h"
 #include "piece.h"
 
-void runGame() {
+Board* _init_game() {
 	Board* b = new Board();
-	Piece* p = new Piece(0);
+	Piece* p = new Piece(WHITE, PAWN);
+	b->placePiece(p, 0, 0);
+
+	return b;
+}
+
+
+
+void runGame() {
+	Board* b = _init_game();
 
 	bool shutdown = false;
 	while (! shutdown) {
 		// TODO
-		b->placePiece(p, 0, 0);
+		Piece* p = new Piece(BLACK, PAWN);
+		b->placePiece(p, 1, 1);
 
 		shutdown = true;
 	}
+
+	delete(b);
 }
