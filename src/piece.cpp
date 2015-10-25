@@ -1,6 +1,8 @@
 #include <stdlib.h>
+#include <stdio.h> //TODO [C++11] - Remove
 
 #include "piece.h"
+#include "logger.h"
 
 int incrementalId = 0;
 
@@ -20,7 +22,13 @@ Piece::Piece(PieceTeam team, PieceType type) {
 	this->avatar = (Avatar*) malloc(sizeof(Avatar));
 	this->avatar->icon = 'p';
 
-	// TODO [Logger] - Allocated Piece
+	//- Log Successful Allocation ------------------------=
+	//
+	// TODO [C++11] - Switch to std::string stream
+	char* s = (char*) malloc(sizeof(char) * 32);
+	sprintf(s, "Piece::%i", this->id);
+	log_memory(s, true);
+	free(s);
 }
 
 /**
@@ -31,7 +39,13 @@ Piece::Piece(PieceTeam team, PieceType type) {
  *  - [2] Avatar
  */
 Piece::~Piece() {
-	// TODO [Logger] - Deallocating Piece
+	//- Log Imminent Deallocation ------------------------=
+	//
+	// TODO [C++11] - Switch to std::string stream
+	char* s = (char*) malloc(sizeof(char) * 32);
+	sprintf(s, "Piece::%i", this->id);
+	log_memory(s, false);
+	free(s);
 
 	free(this->location);                        // [1]
 	free(this->avatar);                          // [2]

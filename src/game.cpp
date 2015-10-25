@@ -5,6 +5,7 @@
 
 #include "board.h"
 #include "piece.h"
+#include "logger.h"
 
 Board* _init_game() {
 	Board* b = new Board();

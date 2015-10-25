@@ -2,10 +2,13 @@
 #include <stdio.h>
 #include <getopt.h>
 
+#include "logger.h"
 #include "game.h"
 
 bool g_verbose = false;
 bool g_echo = false;
+bool g_log_memory = false;
+bool g_log_game = false;
 
 int main(int argc, char** argv) {
 
@@ -17,6 +20,8 @@ int main(int argc, char** argv) {
 			case 'v':
 				printf("\\> [Verbose Mode]\n");
 				g_verbose = true;
+				g_log_memory = true;
+				g_log_game = true;
 				break;
 			case 'e':
 				printf("\\> [Echo Mode]\n");

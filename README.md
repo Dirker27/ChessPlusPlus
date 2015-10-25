@@ -152,7 +152,8 @@ Critical Milestones correspond to definitions above.
       - [x] Base Implementation - Can Place Pieces in Code
         - [x] Location and Rendering Attrs broken out
         - [x] Can Deallocate Responsibly via Destructor
-        - [ ] Logging Utility
+        - [x] Basic Logger Utility
+        - [ ] Piece placement from Game Manager.
       - [ ] Draw Board
         - [ ] Draw Board
         - [ ] Draw Pieces
