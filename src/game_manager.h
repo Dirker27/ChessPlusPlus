@@ -5,6 +5,15 @@
 #include "board.h"
 
 /**
+ * Has the Game started
+ */
+enum GameState {
+	NOT_STARTED,
+	IN_PROGRESS,
+	COMPLETE
+};
+
+/**
  * Who's turn is it?
  */
 enum TurnState {
@@ -38,8 +47,19 @@ class GameManager {
 		Board*  gameBoard;
 
 		// Game State
+		GameState gameState;
 		TurnState turnState;
 		EndGameState endGameState;
+
+		//- Operations -----------------------------------=
+		//
+		bool placePiece(Piece*, int, int);
+		void setup(void);
+
+		//- Helpers --------------------------------------=
+		//
+		void _setWhite();
+		void _setBlack();
 
 	public:
 		//- (De)Allocation -------------------------------=
@@ -49,6 +69,9 @@ class GameManager {
 
 		//- Operations -----------------------------------=
 		//
+		// TODO [C++11] - Utilize State-Design Pattern
+		bool startGame(void);
+		bool resetGame(void);
 		bool nextTurn(void);
 
 		//- Accessors ------------------------------------=

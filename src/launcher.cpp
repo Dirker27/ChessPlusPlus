@@ -8,7 +8,8 @@
 
 GameManager* _init_game() {
 	GameManager* g = new GameManager();
-
+	g->startGame();
+	
 	return g;
 }
 
