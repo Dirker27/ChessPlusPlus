@@ -3,7 +3,7 @@
 #include <getopt.h>
 
 #include "logger.h"
-#include "game.h"
+#include "launcher.h"
 
 bool g_verbose = false;
 bool g_echo = false;
@@ -34,7 +34,7 @@ int main(int argc, char** argv) {
 		}
 	}
 
-	runGame();
+	launchGame();
 
 	return EXIT_SUCCESS;
 }
