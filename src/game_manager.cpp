@@ -8,7 +8,18 @@
  * CONSTRUCTOR
  */
 GameManager::GameManager() {
-	// TODO
+	this->whiteTeam = new Roster(WHITE);
+	this->blackTeam = new Roster(BLACK);
+	this->gameBoard = new Board();
+
+	//- Log Successful Allocation ------------------------=
+	//
+	// TODO [C++11] - Switch to std::string stream
+	char* s = (char*) malloc(sizeof(char) * 128);
+	sprintf(s, "GameManager_WHITE::[%lub]_BLACK::[%lub]_BOARD::[%lub]",
+		sizeof(this->whiteTeam), sizeof(this->blackTeam), sizeof(this->gameBoard));
+	log_memory(s, true);
+	free(s);
 }
 
 /**
@@ -20,7 +31,18 @@ GameManager::GameManager() {
  *  - [3] Game Board [Board]
  */
 GameManager::~GameManager() {
-	// TODO
+	//- Log Imminent Deallocation ------------------------=
+	//
+	// TODO [C++11] - Switch to std::string stream
+	char* s = (char*) malloc(sizeof(char) * 128);
+	sprintf(s, "GameManager_WHITE::[%lub]_BLACK::[%lub]_BOARD::[%lub]",
+		sizeof(this->whiteTeam), sizeof(this->blackTeam), sizeof(this->gameBoard));
+	log_memory(s, false);
+	free(s);
+
+	delete(this->whiteTeam);                     // [1]
+	delete(this->blackTeam);                     // [2]
+	delete(this->gameBoard);                     // [3]
 }
 
 /**
