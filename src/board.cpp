@@ -8,8 +8,6 @@
  * CONSTRUCTOR
  */
 Board::Board() {
-	// TODO [Logger] - Board Alloc Start
-
 	//- Allocate Primary Board ---------------------------=
 	// | ---------------------
 	// | Allocating as a Pointer->ArrayOfRows :: Row->ArrayOfColumnVals
@@ -73,17 +71,17 @@ bool Board::placePiece(Piece* p, int x, int y) {
 	//
 	// X-Bounds
 	if (x < 0 || x > BOARD_SIZE) {
-		// TODO [Logger] - Illegal Placement
+		log_action("[Board::placePiece] Cannot place a piece at location. Out of Bounds");
 		return false;
 	}
 	// Y-Bounds
 	if (y < 0 || y > BOARD_SIZE) {
-		// TODO [Logger] - Illegal Placement
+		log_action("[Board::placePiece] Cannot place a piece at location. Out of Bounds");
 		return false;
 	}
 	// Space Occupied
 	if (this->board[x][y] != NULL) {
-		// TODO [Logger] - Illegal Placement
+		log_action("[Board::placePiece] Cannot place a piece at location. Space is Occupied.");
 		return false;
 	}
 

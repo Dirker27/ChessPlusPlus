@@ -50,3 +50,46 @@ Piece::~Piece() {
 	free(this->location);                        // [1]
 	free(this->avatar);                          // [2]
 }
+
+/**
+ * Move the piece's location to the designated spot
+ *
+ * Uptates internal location field for movement calculations
+ */
+void Piece::updateLocation(int x, int y) {
+	this->location->x = x;
+	this->location->y = y;
+}
+
+/**
+ * Determine what spaces this piece can legally move to without capturing
+ *   an opposing piece.
+ *
+ * A Legal movement location cannot result in the host team being put in check.
+ *
+ * @return An unbounded list of legal movement locations
+ */
+struct list* Piece::findMovementLocations() {
+	struct list* movementLocations = (struct list*) malloc(sizeof(list));
+	list_init(movementLocations);
+
+	// TODO [Interactive Movement]
+
+	return movementLocations;
+}
+
+/**
+ * Determine if and where a capture is available for this piece.
+ * 
+ * A Legal capture location cannot result in the host team being put in check.
+ * 
+ * @return An unbounded list of legal capture locations
+ */
+struct list* Piece::findCaptureLocations() {
+	struct list* captureLocations = (struct list*) malloc(sizeof(list));
+	list_init(captureLocations);
+
+	// TODO [Interactive Movement]
+
+	return captureLocations;
+}

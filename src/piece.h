@@ -1,6 +1,7 @@
 #ifndef PIECE_H
 #define PIECE_H
 
+#include "list.h"
 #include "location_2d.h"
 #include "avatar.h"
 
@@ -44,6 +45,12 @@ class Piece {
 		//
 		Piece(PieceTeam, PieceType);
 		~Piece(void);
+
+		//- Operations -----------------------------------=
+		//
+		void updateLocation(int x, int y);
+		struct list* findMovementLocations();
+		struct list* findCaptureLocations();
 
 		//- Accessors ------------------------------------=
 		//
