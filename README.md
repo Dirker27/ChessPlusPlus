@@ -147,10 +147,29 @@ Critical Milestones correspond to definitions above.
     [x] == Done-Done
 
     - [ ] 0.0: Single-Player Chess
-      - [w] Remember how to compile things in C/C++
-      - [w] Task-Out
+      - [x] Remember how to compile things in C/C++
+        - [x] Makefile
+      - [w] Base Implementation - Can Place Pieces in Code
+        - [ ] Can Deallocate Responsibly via Destructor
+        - [ ] Logging Utility
+      - [ ] Draw Board
+        - [ ] Draw Board
+        - [ ] Draw Pieces
+        - [ ] Colorize (if possible)
+      - [ ] Interactive Piece Placement
+      - [ ] Legal/Illegal Piece Movement
+        - [ ] Create Piece Types
+        - [ ] Movement Rules Definition
+        - [ ] Capture Rules Definition (Basic)
+      - [ ] Game Implementation
+        - [ ] Checkmate Detection
+        - [ ] Check Detection
+        - [ ] Complete Rules Definition
       
     - [ ] 0.5: C++11 Refactor
+      - [ ] Class Constants
+      - [ ] std::Arrays - If applicable
+      - [ ] Homebrew Unit Testing
 
     - [ ] 1.0: Two-Player Chess via P2P Networking
       - [ ] Spike: P2P or Central Server?
