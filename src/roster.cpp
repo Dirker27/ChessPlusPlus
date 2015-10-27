@@ -8,7 +8,7 @@
  * DUCT-TAPE - Piece
  */
 typedef struct _PieceDt {
-	struct Piece* piece;     // payload
+	Piece* piece;            // payload
 	struct list_elem elem;   // list link
 } PieceDt;
 

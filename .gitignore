@@ -1,4 +1,10 @@
+# Generally Bad Files
 *~
 _*
 *.o
+
+# Generated Executables
 chess
+
+# MAC's Make
+.DS_Store
