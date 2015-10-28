@@ -153,8 +153,14 @@ Critical Milestones correspond to definitions above.
         - [x] Location and Rendering Attrs broken out
         - [x] Can Deallocate Responsibly via Destructor
         - [x] Basic Logger Utility
-        - [ ] Piece placement from Game Manager.
+        - [x] Piece placement from Game Manager.
+      - [w] 0.5: C++11 Refactor
+        - [ ] Game Manager refers to a Game State object
+        - [ ] Class Constants
+        - [ ] std::Arrays - If applicable
+        - [ ] Homebrew Unit Testing
       - [ ] Draw Board
+        - [ ] Convert Game Manager to use a Game State
         - [ ] Draw Board
         - [ ] Draw Pieces
         - [ ] Colorize (if possible)
@@ -167,11 +173,6 @@ Critical Milestones correspond to definitions above.
         - [ ] Checkmate Detection
         - [ ] Check Detection
         - [ ] Complete Rules Definition
-      
-    - [ ] 0.5: C++11 Refactor
-      - [ ] Class Constants
-      - [ ] std::Arrays - If applicable
-      - [ ] Homebrew Unit Testing
 
     - [ ] 1.0: Two-Player Chess via P2P Networking
       - [ ] Spike: P2P or Central Server?
