@@ -3,26 +3,25 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#include "game_manager.h"
-#include "logger.h"
+#include "chess_master.h"
 
-GameManager* _init_game() {
-	GameManager* g = new GameManager();
-	g->startGame();
-	
-	return g;
+ChessMaster* _init_game() {
+	ChessMaster* c = new ChessMaster();
+	c->startGame();
+
+	return c;
 }
 
 void launchGame() {
-	GameManager* g = _init_game();
+	ChessMaster* c = _init_game();
 
 	bool shutdown = false;
 	while (! shutdown) {
-		bool gameCanContinue = g->nextTurn();
+		bool gameCanContinue = c->nextTurn();
 
 		// TODO [Interactive] - Properly handle shutdown cases.
 		shutdown = gameCanContinue || true;
 	}
 
-	delete(g);
+	delete(c);
 }

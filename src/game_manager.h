@@ -1,65 +1,34 @@
 #ifndef GAME_MANAGER_H
 #define GAME_MANAGER_H
 
-#include "roster.h"
-#include "board.h"
-
-/**
- * Has the Game started
- */
-enum GameState {
-	NOT_STARTED,
-	IN_PROGRESS,
-	COMPLETE
-};
-
-/**
- * Who's turn is it?
- */
-enum TurnState {
-	WHITE_MOVE,
-	BLACK_MOVE
-};
-
-/**
- * Are we done yet?
- */
-enum EndGameState {
-	NONE,
-	CHECK,
-	CHECKMATE,
-	STALEMATE
-};
+#include "game.h"
 
 /**
  * Manages a Game Instance
+ *
+ * The Game Object is just the collection of objects to represent the virtual
+ *   virtual conflict. The Game Manager is how we link it to the world.
  * 
- * Responsible for:
- *   - Initiating a Player's turn
- *   - Moving the Pieces on the Board
- *   - Determining if endgame conditions have been met
+ * Essentially an abstraction layer for the true(er) model. Responsible for:
+ *   - Facilitating Setup
+ *   - Calculating if a piece has entered Check
+ *   - 
+ *
+ * @author Dirk Hortensius [Dirker27]
  */
 class GameManager {
 	private:
-		// Game Data
-		Roster* whiteTeam;
-		Roster* blackTeam;
-		Board*  gameBoard;
+		// Core Model
+		Game* game;
 
-		// Game State
-		GameState gameState;
-		TurnState turnState;
-		EndGameState endGameState;
+		// TODO: Game Logic Plugins (Check Calculator, Move Calculator, etc)
 
-		//- Operations -----------------------------------=
-		//
-		bool placePiece(Piece*, int, int);
-		void setup(void);
-
-		//- Helpers --------------------------------------=
-		//
-		void _setWhite();
-		void _setBlack();
+		//- Helper Functions -----------------------------=
+		// | ---------------/
+		// | TODO: This is temporary. Move out w/ Business Logic Plugins.
+		// 
+		void _setWhite(void);
+		void _setBlack(void);
 
 	public:
 		//- (De)Allocation -------------------------------=
@@ -68,16 +37,11 @@ class GameManager {
 		~GameManager(void);
 
 		//- Operations -----------------------------------=
-		//
-		// TODO [C++11] - Utilize State-Design Pattern
-		bool startGame(void);
-		bool resetGame(void);
-		bool nextTurn(void);
+		// 
+		bool setupBoard(void);
 
-		//- Accessors ------------------------------------=
-		//
-		TurnState getTurnState(void) { return this->turnState; };
-		EndGameState getEndGameState(void) { return this->endGameState; };
+		// Accessor
+		Game* getGame(void) { return this->game; };
 };
 
 #endif

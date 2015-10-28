@@ -4,7 +4,7 @@ CFLAGS=-Wall -Werror
 
 DRIVER_O=main.o
 LAUNCH_O=launcher.o
-GAME_O=game_manager.o
+GAME_O=game_manager.o chess_master.o
 COMP_O=board.o piece.o roster.o
 UTIL_O=logger.o list.o
 
@@ -40,8 +40,8 @@ launch: launcher.cpp game
 #     |- board.h
 #     |  |- piece.h
 #     |- logger.h
-game: game_manager.cpp components logging
-	$(CPP) $(CFLAGS) -c game_manager.cpp
+game: game_manager.cpp chess_master.cpp components logging
+	$(CPP) $(CFLAGS) -c game_manager.cpp chess_master.cpp
 
 # Game Components
 #   Compile Dependencies:
@@ -59,8 +59,8 @@ game: game_manager.cpp components logging
 #     board.cpp
 #     |- piece.h
 #     |- logging.h
-components: roster.cpp piece.cpp board.cpp logging linked_list
-	$(CPP) $(CFLAGS) -c roster.cpp piece.cpp board.cpp 
+components: roster.cpp piece.cpp board.cpp game.cpp logging linked_list
+	$(CPP) $(CFLAGS) -c roster.cpp piece.cpp board.cpp
 
 # System Logging Utilities
 #   Compile Dependencies:
