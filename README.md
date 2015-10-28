@@ -154,10 +154,19 @@ Critical Milestones correspond to definitions above.
         - [x] Can Deallocate Responsibly via Destructor
         - [x] Basic Logger Utility
         - [x] Piece placement from Game Manager.
-      - [w] 0.5: C++11 Refactor
-        - [ ] Game Manager refers to a Game State object
-        - [ ] Class Constants
-        - [ ] std::Arrays - If applicable
+      - [w] Better Architecture
+        - [w] Break into M-V-C
+          - [w] Game Display Stub
+          - [w] Input Controller Stubs
+          - [w] State-full Game Object Model
+            - [ ] Migrate Logic Accordingly
+        - [ ] Exisitng Files into Packages
+          - [ ] Game Components (Piece, Board, etc)
+          - [ ] Utilities (List, Logger, etc)
+          - [ ] Makefile updated
+        - [ ] Switch to C++11 Practices
+          - [ ] Class Constants
+          - [ ] std::Arrays - If applicable
         - [ ] Homebrew Unit Testing
       - [ ] Draw Board
         - [ ] Convert Game Manager to use a Game State
