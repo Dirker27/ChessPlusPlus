@@ -156,10 +156,10 @@ Critical Milestones correspond to definitions above.
         - [x] Piece placement from Game Manager.
       - [w] Better Architecture
         - [w] Break into M-V-C
-          - [w] Game Display Stub
-          - [w] Input Controller Stubs
-          - [w] State-full Game Object Model
-            - [ ] Migrate Logic Accordingly
+          - [x] Game Display Stub
+          - [x] Input Controller Stubs
+          - [x] State-full Game Object Model
+            - [x] Migrate Logic Accordingly
         - [ ] Exisitng Files into Packages
           - [ ] Game Components (Piece, Board, etc)
           - [ ] Utilities (List, Logger, etc)

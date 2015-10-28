@@ -63,20 +63,20 @@ class Game {
     public:
         //- (De)Allocate ---------------------------------=
         //
-        Game() { /* TODO: Stub */ };
-        ~Game() { /* TODO: Stub */ };
+        Game();
+        ~Game();
 
         //- Operations -----------------------------------=
         // | ---------/
         // | TODO: Convert to Params/Rets Smart Pointers
         //
         // Add a Piece
-        bool addPieceToGame(Piece*) { /* TODO: Stub */ return true; };
-        bool addPieceToGame(Piece*, int, int) { /* TODO: Stub */ return true; };
+        bool addPieceToGame(Piece*);
+        bool addPieceToGame(Piece*, int, int);
         //
         // Move a Piece
-        bool movePieceToLocation(Piece*, Location*) { /* TODO: Stub */ return true; };
-        bool movePieceToLocation(Piece*, int, int) { /* TODO: Stub */ return true; };
+        bool movePieceToLocation(Piece*, Location*);
+        bool movePieceToLocation(Piece*, int, int);
         //
         // Select a Piece
         Piece* selectPiece(Piece*) { /* TODO: Stub */ return NULL; };
