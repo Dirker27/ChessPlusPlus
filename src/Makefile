@@ -1,6 +1,6 @@
-CC=gcc
 CPP=g++
 CFLAGS=-Wall -Werror
+IPATH=-I include/
 
 DRIVER_O=main.o
 LAUNCH_O=launcher.o
@@ -13,14 +13,14 @@ all: chess
 # Final Executable Build
 #   Dynamically link .o files here.
 chess: logging linked_list components game launch driver
-	$(CPP) $(CFLAGS) $(DRIVER_O) $(LAUNCH_O) $(GAME_O) $(COMP_O) $(UTIL_O) -o ./chess
+	$(CPP) $(CFLAGS) $(IPATH) $(DRIVER_O) $(LAUNCH_O) $(GAME_O) $(COMP_O) $(UTIL_O) -o ./chess
 
 # The Main Driver / CLI Interpreter
 #   Compile Dependencies:
 #     main.cpp
 #     |- launcher.h
 driver: main.cpp launch
-	$(CPP) $(CFLAGS) -c main.cpp
+	$(CPP) $(CFLAGS) $(IPATH) -c main.cpp
 
 # Resource Loader / Game Launcher
 #   Compile Dependencies:
@@ -29,7 +29,7 @@ driver: main.cpp launch
 #       |- roster.h
 #       |- board.h
 launch: launcher.cpp game
-	$(CPP) $(CFLAGS) -c launcher.cpp
+	$(CPP) $(CFLAGS) $(IPATH) -c launcher.cpp
 
 # Game Business Logic
 #   Compile Dependencies:
@@ -40,8 +40,8 @@ launch: launcher.cpp game
 #     |- board.h
 #     |  |- piece.h
 #     |- logger.h
-game: game_manager.cpp chess_master.cpp components logging
-	$(CPP) $(CFLAGS) -c game_manager.cpp chess_master.cpp
+game: game/game_manager.cpp game/chess_master.cpp components logging
+	$(CPP) $(CFLAGS) $(IPATH) -c game/game_manager.cpp game/chess_master.cpp
 
 # Game Components
 #   Compile Dependencies:
@@ -59,22 +59,24 @@ game: game_manager.cpp chess_master.cpp components logging
 #     board.cpp
 #     |- piece.h
 #     |- logging.h
-components: roster.cpp piece.cpp board.cpp game.cpp logging linked_list
-	$(CPP) $(CFLAGS) -c roster.cpp piece.cpp board.cpp game.cpp
+components: game/roster.cpp game/piece.cpp game/board.cpp game/game.cpp logging linked_list
+	$(CPP) $(CFLAGS) $(IPATH) -c game/roster.cpp game/piece.cpp game/board.cpp game/game.cpp
+
+util: logging linked_list
 
 # System Logging Utilities
 #   Compile Dependencies:
 #     logger.cpp
 #     |- logger.h
-logging: logger.cpp 
-	$(CPP) $(CFLAGS) -c logger.cpp
+logging: util/logger.cpp 
+	$(CPP) $(CFLAGS) $(IPATH) -c util/logger.cpp
 
 # AUXILARY DATA STRUCTURES
 #   Compile Dependencies:
 #     list.c
 #     |- list.h
-linked_list: list.cpp
-	$(CPP) $(CFLAGS) -c list.cpp
+linked_list: util/list.cpp
+	$(CPP) $(CFLAGS) $(IPATH) -c util/list.cpp
 
 clean:
 	rm -f *.o chess
