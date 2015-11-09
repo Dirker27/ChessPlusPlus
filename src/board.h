@@ -2,8 +2,9 @@
 #define BOARD_H
 
 #include "piece.h"
+#include "location_2d.h"
 
-const int BOARD_SIZE = 8;    // TODO [C++11] - Move to static class constant
+const int DEFAULT_BOARD_SIZE = 8;  // TODO: [C++11] Move to static class constant
 
 /**
  * The Primary Game Board
@@ -25,18 +26,25 @@ const int BOARD_SIZE = 8;    // TODO [C++11] - Move to static class constant
  *     8x8 board in the HEAP remains un-replicated.
  */
 class Board {
-	private:
-		Piece*** board;
+    private:
+        Piece*** board;
+        int size;
 
-	public:
-		//- (De)Allocation -------------------------------=
-		//
-		Board(void);
-		~Board(void);
+    public:
+        //- (De)Allocation -------------------------------=
+        //
+        Board(void);
+        ~Board(void);
 
-		//- Actions --------------------------------------=
-		//
-		bool placePiece(Piece*, int, int);
+        //- Actions --------------------------------------=
+        //
+        bool placePiece(Piece*, int, int);
+        bool movePieceFromLocationToLocation(Location*, Location*);
+        bool movePieceFromLocationToLocation(int, int, int, int);
+        Piece* getPieceAtLocation(Location*);
+        Piece* getPieceAtLocation(int, int);
+        Piece* getPieceRelativeToLocation(Location*, RelativeLocation);
+        Piece* getPieceRelativeToLocation(int int, RelativeLocation);
 };
 
 #endif

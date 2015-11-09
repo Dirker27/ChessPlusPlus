@@ -2,6 +2,7 @@
 #include <stdio.h> //TODO [C++11] - Remove
 
 #include "piece.h"
+#include "location_2d.h"
 #include "logger.h"
 
 int incrementalId = 0;

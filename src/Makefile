@@ -5,6 +5,7 @@ CFLAGS=-Wall -Werror
 DRIVER_O=main.o
 LAUNCH_O=launcher.o
 GAME_O=game_manager.o chess_master.o
+VIEW_O=display.o
 COMP_O=board.o piece.o roster.o game.o
 UTIL_O=logger.o list.o
 
@@ -12,8 +13,8 @@ all: chess
 
 # Final Executable Build
 #   Dynamically link .o files here.
-chess: logging linked_list components game launch driver
-	$(CPP) $(CFLAGS) $(DRIVER_O) $(LAUNCH_O) $(GAME_O) $(COMP_O) $(UTIL_O) -o ./chess
+chess: logging linked_list components view game launch driver
+	$(CPP) $(CFLAGS) $(DRIVER_O) $(LAUNCH_O) $(GAME_O) $(VIEW_O) $(COMP_O) $(UTIL_O) -o ./chess
 
 # The Main Driver / CLI Interpreter
 #   Compile Dependencies:
@@ -40,8 +41,27 @@ launch: launcher.cpp game
 #     |- board.h
 #     |  |- piece.h
 #     |- logger.h
-game: game_manager.cpp chess_master.cpp components logging
+game: game_manager.cpp chess_master.cpp view components logging
 	$(CPP) $(CFLAGS) -c game_manager.cpp chess_master.cpp
+
+# Game Display
+#   Compile Dependencies:
+#     roster.cpp
+#     |- list.h
+#     |- piece.h
+#     |  |- location_2d.h **
+#     |  |- avatar.h **
+#     |  |- logger.h
+#     |- logger.h
+#     piece.cpp 
+#     |- location_2d.h **
+#     |- avatar.h **
+#     |- logger.h
+#     board.cpp
+#     |- piece.h
+#     |- logging.h
+view: display.cpp components
+	$(CPP) $(CFLAGS) -c display.cpp
 
 # Game Components
 #   Compile Dependencies:

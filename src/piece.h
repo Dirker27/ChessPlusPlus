@@ -6,17 +6,17 @@
 #include "avatar.h"
 
 enum PieceTeam {
-	BLACK,
-	WHITE
+    BLACK,
+    WHITE
 };
 
 enum PieceType {
-	PAWN,
-	KNIGHT,
-	BISHOP,
-	ROOK,
-	QUEEN,
-	KING
+    PAWN,
+    KNIGHT,
+    BISHOP,
+    ROOK,
+    QUEEN,
+    KING
 };
 
 /**
@@ -28,35 +28,36 @@ enum PieceType {
  *   subclasses for how they interpret movement and capturing.
  */
 class Piece {
-	private:
-		//- Piece Attributes -----------------------------=
-		//
-		int id;
-		PieceTeam team;
-		PieceType type;
-		Location* location;
+    private:
+        //- Piece Attributes -----------------------------=
+        //
+        int id;
+        PieceTeam team;
+        PieceType type;
+        Location* location;
 
-		//- Rendering Attributes -------------------------=
-		//
-		Avatar* avatar;
-		
-	public:
-		//- (De)Allocation -------------------------------=
-		//
-		Piece(PieceTeam, PieceType);
-		~Piece(void);
+        //- Rendering Attributes -------------------------=
+        //
+        Avatar* avatar;
+        
+    public:
+        //- (De)Allocation -------------------------------=
+        //
+        Piece(PieceTeam, PieceType);
+        ~Piece(void);
 
-		//- Operations -----------------------------------=
-		//
-		void updateLocation(int x, int y);
-		struct list* findMovementLocations();
-		struct list* findCaptureLocations();
+        //- Operations -----------------------------------=
+        //
+        void updateLocation(Location*);
+        void updateLocation(int x, int y);
+        struct list* findMovementLocations();
+        struct list* findCaptureLocations();
 
-		//- Accessors ------------------------------------=
-		//
-		int getId(void) {return this->id; };
-		PieceTeam getTeam(void) { return this->team; };
-		PieceType getType(void) { return this->type; };
+        //- Accessors ------------------------------------=
+        //
+        int getId(void) {return this->id; };
+        PieceTeam getTeam(void) { return this->team; };
+        PieceType getType(void) { return this->type; };
 };
 
 #endif

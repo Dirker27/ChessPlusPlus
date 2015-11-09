@@ -31,14 +31,14 @@ class Display {
         // | -----------/
         // | TODO: Set Render Mode by constructor param
         //
-        Display(void) { /* TODO: Stub */ };
+        Display(void);
         ~Display(void) { /* TODO: Stub */ };
 
         //- Operations ---------------------------------------=
         // | ---------/
         // | TODO: Convert to Shared Pointer
         //
-        void RenderGame(Game*) { /* TODO: Stub */ };
+        void renderGame(Game*);
 };
 
 

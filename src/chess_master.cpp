@@ -96,5 +96,7 @@ bool ChessMaster::nextTurn() {
 
 	// TODO [Interactive] - Get Piece Move
 
+	this->display->renderGame(this->game->getGame());
+
 	return true;
 }
